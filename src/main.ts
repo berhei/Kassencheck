@@ -200,7 +200,7 @@ app.addEventListener('click', async (event) => {
   try {
     const date = new Date();
     const blob = createReceipt(draft, language, date);
-    const filename = `${labels[language].file}-${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}.png`;
+    const filename = `${labels[language].file}-${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}_${String(date.getHours()).padStart(2, '0')}-${String(date.getMinutes()).padStart(2, '0')}-${String(date.getSeconds()).padStart(2, '0')}.png`;
     if (button.dataset.action === 'share') {
       const file = new File([blob], filename, { type: 'image/png' });
       if (!navigator.share || !navigator.canShare?.({ files: [file] })) {
